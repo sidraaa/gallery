@@ -39,7 +39,7 @@
           <div class="carousel-inner">
               <?php $i=0;?>
              @foreach($album->images as $image)
-            <div class="item <?= ($i==0)? 'active' : ''?>">
+            <div class="item" data-id="image-{{$image->id}}">
               <img src="{{ asset("storage/".$image->image) }}" alt="{{$image->id}}">
             </div>
              <?php $i++;?>
@@ -61,7 +61,13 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
     $(document).ready(function(){
-        
+       $('.thumbnail').on("click",function(){
+           // removing class active from all image divs
+           $('.item').attr("class","item");
+           // adding class active against the current selection of image
+           var img = $(this).attr("id");
+           $("[data-id="+img+"]").attr("class","item active");
+       }); 
     });
        
      </script>
