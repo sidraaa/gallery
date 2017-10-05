@@ -106,8 +106,8 @@ class AlbumsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {      
         Album::destroy($id);
-        return redirect('index');
+        return redirect('/');
     }
 }

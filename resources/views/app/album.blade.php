@@ -13,7 +13,7 @@
           <h2 class="media-heading" style="font-size: 26px;">Album Description :</h2>
           <p>{{$album->description}}<p>
           <a href="{{route('add_image',array('id'=>$album->id))}}"><button type="button"class="btn btn-primary btn-large">Add New Image to Album</button></a>
-          <a href="{{route('delete_album',array('id'=>$album->id))}}" onclick="return confirm('Are you sure?')"><button type="button"class="btn btn-danger btn-large">Delete Album</button></a>
+          <a href="{{route('delete_album',array('id'=>$album->id))}}" onclick="return confirm('Are you sure you want to delete this album?')"><button type="button"class="btn btn-danger btn-large">Delete Album</button></a>
         </div>
       </div>
     </div>
@@ -37,12 +37,10 @@
         <div class="modal-body">
        
           <div class="carousel-inner">
-              <?php $i=0;?>
              @foreach($album->images as $image)
             <div class="item" data-id="image-{{$image->id}}">
               <img src="{{ asset("storage/".$image->image) }}" alt="{{$image->id}}">
             </div>
-             <?php $i++;?>
              @endforeach
            
           </div><!-- /.carousel-inner -->

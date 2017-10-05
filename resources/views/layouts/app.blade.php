@@ -20,6 +20,15 @@
       .modal.and.carousel {
           position: fixed; 
         }
+        .glyphicon{
+            border:2px solid red;
+            border-radius: 4px;
+            background-color: red;
+            color:white;
+            position: absolute;
+            top:12px;
+            left:28px;
+        }
     </style>
   </head>
   <body>
