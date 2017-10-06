@@ -24,3 +24,7 @@ Route::get('/addimage/{id}', array('as' => 'add_image','uses' => 'ImagesControll
 Route::post('/addimage', array('as' => 'add_image_to_album','uses' => 'ImagesController@store'));
 Route::get('/deleteimage/{id}', array('as' => 'delete_image','uses' => 'ImagesController@destroy'));
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
