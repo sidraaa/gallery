@@ -38,6 +38,24 @@
                                 @endif
                             </div>
                         </div>
+                        
+                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}" style="margin-left: 250px;">
+                   
+                            <div class="col-md-2">
+                                <input id="male" type="radio" name="gender" value="male" required>
+                            </div>
+                            <label for="gender" class="col-md-1 control-label">Male</label>
+                            
+                            <div class="col-md-2">
+                                <input id="female" type="radio" name="gender" value="female" required>
+                            </div>
+                            <label for="gender" class="col-md-2 control-label">Female</label>
+                            @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('gender') }}</strong>
+                                    </span>
+                           @endif
+                        </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
