@@ -11,10 +11,12 @@
             <div class="col-lg-3">
                 
               <div class="thumbnail" style="min-height: 514px;">
-                  <a class="left" href="{{route('delete_album',array('id'=>$album->id))}}" role="button" onclick="return confirm('Are you sure you want to delete your \'{{$album->name}}\' album?')">
-                    <span class="glyphicon glyphicon-remove"></span>
+                <a class="left" href="{{route('delete_album',array('id'=>$album->id))}}" role="button" onclick="return confirm('Are you sure you want to delete your \'{{$album->name}}\' album?')">
+                    <span class="glyphicon glyphicon-remove remove-icon"></span>
                 </a>
-                <img alt="{{$album->name}}" src="{{ asset("storage/".$album->cover_image) }}" >
+                 <a href="{{URL::route('show_album',array('id'=>$album->id))}}">
+                    <img alt="{{$album->name}}" src="{{ asset("storage/".$album->cover_image) }}" >
+                 </a>
                 <div class="caption">
                   <h3>{{$album->name}}</h3>
                   <p>{{$album->description}}</p>
