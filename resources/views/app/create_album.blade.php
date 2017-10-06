@@ -5,39 +5,33 @@
 
 @section('content')
     
-      <div class="span4" style="display: inline-block;margin-top:100px;">
-
-        @if (isset($errors) && $errors->has(''))
-          <div class="alert alert-block alert-error fade in"id="error-block">
-             <?php
-             $messages = $errors->all('<li>:message</li>');
-            ?>
-            <button type="button" class="close"data-dismiss="alert">×</button>
-
-            <h4>Warning!</h4>
-            <ul>
-              @foreach($messages as $message)
-                {{$message}}
-              @endforeach
-            </ul>
-          </div>
-        @endif
-
-        <form name="createnewalbum" method="POST" action="{{route('create_album')}}" enctype="multipart/form-data">
+      <div class="span4" style="display: inline-block;">
+          
+       <form name="createnewalbum" method="POST" action="{{route('create_album')}}" enctype="multipart/form-data">
             {{ csrf_field() }}
           <fieldset>
             <legend>Create an Album</legend>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
               <label for="name">Album Name</label>
               <input name="name" type="text" class="form-control"placeholder="Album Name" value="{{old('name')}}">
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
             </div>
             <div class="form-group">
               <label for="description">Album Description</label>
-              <textarea name="description" type="text"class="form-control" placeholder="Album description">{{old('description')}}</textarea>
+              <textarea name="description" type="text"class="form-control" placeholder="Album description">{{old('description')}}</textarea>           
             </div>
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('cover_image') ? ' has-error' : '' }}">
               <label for="cover_image">Select a Cover Image</label>
               <input type="file" name="cover_image" />
+                @if ($errors->has('cover_image'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('cover_image') }}</strong>
+                    </span>
+                @endif
             </div>
             <button type="submit" class="btn btn-default">Create!</button>
           </fieldset>

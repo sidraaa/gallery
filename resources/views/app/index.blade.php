@@ -4,8 +4,8 @@
 
 @section('content')
     
-        <div class="starter-template">
-      
+    <div class="starter-template">
+        
         <div class="row">
           @foreach($albums as $album)
             <div class="col-lg-3">
@@ -29,6 +29,6 @@
           @endforeach
         </div>
     
-      </div>
+    </div>
 
 @endsection

@@ -11,10 +11,10 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-Route::get('/', array('as' => 'index','uses' => 'AlbumsController@index'));
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/gallery', array('uses' => 'AlbumsController@index'));
 Route::get('/createalbum', array('as' => 'upload','uses' => 'AlbumsController@create'));
 Route::post('/createalbum', array('as' => 'create_album','uses' => 'AlbumsController@store'));
 Route::get('/deletealbum/{id}', array('as' => 'delete_album','uses' => 'AlbumsController@destroy'));

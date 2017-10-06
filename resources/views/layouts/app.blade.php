@@ -38,7 +38,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top">            
             <div class="container">
                 <div class="navbar-header">
 
@@ -49,17 +49,21 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
+                    @if(!Auth::guest())
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">Awesome Albums</a>
+                    <a class="navbar-brand" href="{{ url('/gallery') }}">Awesome Albums</a>
+                    @endif
+                    
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    @if(!Auth::guest())
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;<li><a href="{{URL::route('upload')}}">Create New Album</a></li>
                     </ul>
-
+                    @endif
+                    
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -74,6 +78,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{route('home')}}">Profile</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
