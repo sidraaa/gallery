@@ -10,8 +10,9 @@
             <file>file:/home/attribe/Projects/gallery/resources/views/app/index.blade.php</file>
             <file>file:/home/attribe/Projects/gallery/resources/views/app/album.blade.php</file>
             <file>file:/home/attribe/Projects/gallery/resources/views/layouts/app.blade.php</file>
-            <file>file:/home/attribe/Projects/gallery/resources/views/app/addimage.blade.php</file>
+            <file>file:/home/attribe/Projects/gallery/public/css/app.css</file>
             <file>file:/home/attribe/Projects/gallery/app/Image.php</file>
+            <file>file:/home/attribe/Projects/gallery/public/js/app.js</file>
         </group>
     </open-files>
 </project-private>
