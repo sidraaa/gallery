@@ -9,6 +9,10 @@ use App\Image;
 
 class AlbumsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,10 +45,10 @@ class AlbumsController extends Controller
     {
         $validator= Validator::make($request->all(), [
             'name'         =>  'required',
-            'cover_image'                =>  'required|image', 
+            'cover_image'  =>  'required|image', 
         ]);
         if ($validator->fails()) {
-            return redirect('upload')
+            return redirect('/createalbum')
                 ->withErrors($validator)
                 ->withInput($request->all());
         }
@@ -108,6 +112,6 @@ class AlbumsController extends Controller
     public function destroy($id)
     {      
         Album::destroy($id);
-        return redirect('/');
+        return redirect('/gallery');
     }
 }
